@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercício Matriz 06</title>
+</head>
+
+<body>
+<h1>Correção das Provas</h1>
+<script>
+
+  let gabarito = ['A', 'C', 'A', 'D', 'B', 'B', 'A', 'D', 'C', 'B'];
+
+  function calcularNota(respostasAluno) {
+      let nota = 0;
+      for (let i = 0; i < gabarito.length; i++) {
+          if (respostasAluno[i] === gabarito[i]) {
+              nota++;
+          }
+      }
+      return nota;
+  }
+
+    let dadosAlunos = [];
+
+  for (let i = 0; i < 2; i++) {
+      let matricula = prompt(`Digite o código de matrícula do aluno ${i + 1}:`);
+      let respostasAluno = [];
+     
+    
+      for (let j = 0; j < gabarito.length; j++) {
+         let resposta = prompt(`Digite a resposta da questão ${j + 1} para o aluno ${matricula}:`);
+          respostasAluno.push(resposta.toUpperCase()); 
+      }
+
+      let notaAluno = calcularNota(respostasAluno);
+
+      let resultado = notaAluno >= 7.0 ? 'Aprovado' : 'Reprovado';
+
+      dadosAlunos.push({ matricula, nota: notaAluno, resultado });
+  }
+
+  document.write("<h3>Resultados:</h3>");
+  document.write("<pre>");
+  for (let aluno of dadosAlunos) {
+      document.write(`Matrícula: ${aluno.matricula}, Nota: ${aluno.nota}, Resultado: ${aluno.resultado}\n`);
+  }
+  document.write("</pre>");
+
+  let alunosAprovados = 0;
+  let somaNotas = 0;
+
+  for (let aluno of dadosAlunos) {
+      somaNotas += aluno.nota;
+      if (aluno.nota >= 7.0) {
+          alunosAprovados++;
+      }
+  }
+
+  let mediaTurma = somaNotas / dadosAlunos.length;
+
+  document.write(`<h3>Estatísticas:</h3>`);
+  document.write(`Quantidade de Alunos Aprovados: ${alunosAprovados}<br>`);
+  document.write(`Média da Nota na Turma: ${mediaTurma.toFixed(2)}`);
+  </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercício Matriz 02</title>
+</head>
+
+<body>
+  <h1>Matriz dos meses</h1>
+
+  <script>
+    let escolhaMes = prompt("Digite o número do mês (1 a 12):");
+
+    let meses = [
+      { nomePort: "Janeiro", abreviat: "Jan", nomeIng: "January" },
+      { nomePort: "Fevereiro", abreviat: "Fev", nomeIng: "February" },
+      { nomePort: "Março", abreviat: "Mar", nomeIng: "March" },
+      { nomePort: "Abril", abreviat: "Abr", nomeIng: "April" },
+      { nomePort: "Maio", abreviat: "Mai", nomeIng: "May" },
+      { nomePort: "Junho", abreviat: "Jun", nomeIng: "June" },
+      { nomePort: "Julho", abreviat: "Jul", nomeIng: "July" },
+      { nomePort: "Agosto", abreviat: "Ago", nomeIng: "August" },
+      { nomePort: "Setembro", abreviat: "Set", nomeIng: "September" },
+      { nomePort: "Outubro", abreviat: "Out", nomeIng: "October" },
+      { nomePort: "Novembro", abreviat: "Nov", nomeIng: "November" },
+      { nomePort: "Dezembro", abreviat: "Dez", nomeIng: "December" }
+    ];
+
+    if (escolhaMes >= 1 && escolhaMes <= 12) {
+      let indice = escolhaMes - 1;
+
+      document.write(`O mês correspondente ao número é: ${meses[indice].nomePort} , ${meses[indice].abreviat} , ${meses[indice].nomeIng}.`);
+    } else {
+      document.write("Número de mês inválido. Por favor, insira um número entre 1 e 12.");
+    }
+  </script>
+</body>
+
+</html>

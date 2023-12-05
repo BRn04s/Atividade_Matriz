@@ -1,0 +1,41 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercício Matriz 01</title>
+</head>
+
+<body>
+  <h1>Somando a Matriz</h1>
+
+  <script>
+    let matriz = [[10, 20, 30, 40, 50],
+                  [11, 21, 31, 41, 51],
+                  [12, 22, 32, 42, 52],
+                  [13, 23, 33, 43, 53]];
+
+    let somaLinha = 0;
+    let somaColuna = 0;
+
+    for (let i = 0; i < 4; i++) {
+      for (let j = 0; j < 5; j++) {
+        somaLinha += matriz[i][j];
+      }
+      document.write(`Soma da linha ${i} é igual a ${somaLinha} </br>`);
+      somaLinha = 0;
+    }
+
+    for (let colunas = 0; colunas < 5; colunas++) {
+      for (let linhas = 0; linhas < 4; linhas++) {
+
+        somaColuna += matriz[linhas][colunas];
+      }
+
+      document.write(`Soma da coluna ${colunas} é igual a ${somaColuna} </br>`);
+      somaColuna = 0;
+    }
+  </script>
+</body>
+
+</html>

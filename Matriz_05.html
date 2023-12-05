@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercício Matriz 05</title>
+</head>
+
+<body>
+  <h1>Matriz Inversa</h1>
+  <p>Matriz A:</p>
+  <script>
+    let matriz = [[10, 20, 30, 40, 50, 60],
+                [11, 21, 31, 41, 51, 61],
+                [12, 22, 32, 42, 52, 62],
+                [13, 23, 33, 43, 53, 63],
+                [14, 24, 34, 44, 54, 64]];
+
+    for (let linhas = 0; linhas < 5; linhas++) {
+      for (let colunas = 0; colunas < 6; colunas++) {
+  document.write(matriz[linhas][colunas] + " ");
+      }
+      document.write("</br>")
+      
+    }
+    document.write("<hr>" + "Matriz B:" + "</br>");
+    for (let linhasB = 0; linhasB < 6 ; linhasB++) {
+      for (let colunasB= 0; colunasB < 5; colunasB++) {
+    
+    document.write(matriz[colunasB][linhasB] + " ");
+      }
+      document.write("</br>")
+    }
+  </script>
+</body>
+
+</html>

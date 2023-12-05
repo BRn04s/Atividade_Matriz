@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercício Matriz 03</title>
+</head>
+
+<body>
+  <h1>Alunos</h1>
+  <div id="alunos"></div>
+  <script>
+    let numeroAlunos = 100;
+    let mediaMediasFinais = 0;
+    let mediaPorcentagensFrequencia = 0;
+    let dadosAlunos = [];
+
+    for (let aluno = 0; aluno < numeroAlunos; aluno++) {
+      let matricula = prompt("Digite o número de matrícula do aluno");
+      let mediaFinal = Number(prompt("Digite a média final do aluno"));
+      mediaMediasFinais += mediaFinal;
+      let frequencia = Number(prompt("Digite a porcentagem de frequência do aluno"));
+      mediaPorcentagensFrequencia += frequencia;
+
+      dadosAlunos.push([matricula, mediaFinal, frequencia]);
+    }
+
+    mediaMediasFinais = (mediaMediasFinais / numeroAlunos).toFixed(1);
+    mediaPorcentagensFrequencia = (mediaPorcentagensFrequencia / numeroAlunos);
+
+    dadosAlunos.push(["Total", mediaMediasFinais, mediaPorcentagensFrequencia]);
+
+    let tabela = "<table border='1'><tr><th>Matrícula</th><th>Média Final</th><th>Frequência (%)</th></tr>";
+    for (let i = 0; i < numeroAlunos; i++) {
+      tabela += `<tr><td>${dadosAlunos[i][0]}</td><td>${dadosAlunos[i][1]}</td><td>${dadosAlunos[i][2]}</td></tr>`;
+    }
+    tabela += `<tr><td>${dadosAlunos[numeroAlunos][0]}</td><td>${dadosAlunos[numeroAlunos][1]}</td><td>${dadosAlunos[numeroAlunos][2]}</td></tr>`;
+    tabela += "</table>";
+
+    document.getElementById("alunos").innerHTML = tabela;
+  </script>
+
+</body>
+
+</html>
