@@ -1,69 +1,72 @@
-<!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Exercício Matriz 06</title>
+  <title></title>
 </head>
 
 <body>
-<h1>Correção das Provas</h1>
-<script>
+  <script>
+    let gabarito = ['A', 'C', 'A', 'D', 'B', 'B', 'A', 'D', 'C', 'B'];
 
-  let gabarito = ['A', 'C', 'A', 'D', 'B', 'B', 'A', 'D', 'C', 'B'];
-
-  function calcularNota(respostasAluno) {
+    function calcularNota(respostasAluno) {
       let nota = 0;
-      for (let i = 0; i < gabarito.length; i++) {
-          if (respostasAluno[i] === gabarito[i]) {
-              nota++;
-          }
+      for (let questaoIndex = 0; questaoIndex < gabarito.length; questaoIndex++) {
+        if (respostasAluno[questaoIndex] === gabarito[questaoIndex]) {
+          nota++;
+        }
       }
       return nota;
-  }
+    }
 
     let dadosAlunos = [];
 
-  for (let i = 0; i < 2; i++) {
-      let matricula = prompt(`Digite o código de matrícula do aluno ${i + 1}:`);
+    for (let alunoIndex = 0; alunoIndex < 2; alunoIndex++) {
+      let matricula = prompt(Digite o código de matrícula do aluno ${alunoIndex + 1}:);
       let respostasAluno = [];
-     
-    
-      for (let j = 0; j < gabarito.length; j++) {
-         let resposta = prompt(`Digite a resposta da questão ${j + 1} para o aluno ${matricula}:`);
-          respostasAluno.push(resposta.toUpperCase()); 
+
+      for (let questaoIndex = 0; questaoIndex < gabarito.length; questaoIndex++) {
+        let resposta = prompt(Digite a resposta da questão ${questaoIndex + 1} para o aluno ${matricula}:);
+        respostasAluno.push(resposta.toUpperCase());
       }
 
       let notaAluno = calcularNota(respostasAluno);
 
-      let resultado = notaAluno >= 7.0 ? 'Aprovado' : 'Reprovado';
+      let resultado;
+      if (notaAluno >= 7.0) {
+        resultado = 'Aprovado';
+      } else {
+        resultado = 'Reprovado';
+      }
 
       dadosAlunos.push({ matricula, nota: notaAluno, resultado });
-  }
+    }
 
-  document.write("<h3>Resultados:</h3>");
-  document.write("<pre>");
-  for (let aluno of dadosAlunos) {
-      document.write(`Matrícula: ${aluno.matricula}, Nota: ${aluno.nota}, Resultado: ${aluno.resultado}\n`);
-  }
-  document.write("</pre>");
+    document.write("<h3>Resultados:</h3>");
+    
+    for (let alunoIndex = 0; alunoIndex < dadosAlunos.length; alunoIndex++) {
+      let aluno = dadosAlunos[alunoIndex];
+      
+      document.write(Matrícula: ${aluno.matricula}, Nota: ${aluno.nota}, Resultado: ${aluno.resultado}\n);
+    }
 
-  let alunosAprovados = 0;
-  let somaNotas = 0;
+    let alunosAprovados = 0;
+    let somaNotas = 0;
 
-  for (let aluno of dadosAlunos) {
+    for (let alunoIndex = 0; alunoIndex < dadosAlunos.length; alunoIndex++) {
+      let aluno = dadosAlunos[alunoIndex];
       somaNotas += aluno.nota;
       if (aluno.nota >= 7.0) {
-          alunosAprovados++;
+        alunosAprovados++;
       }
-  }
+    }
 
-  let mediaTurma = somaNotas / dadosAlunos.length;
+    let mediaTurma = somaNotas / dadosAlunos.length;
 
-  document.write(`<h3>Estatísticas:</h3>`);
-  document.write(`Quantidade de Alunos Aprovados: ${alunosAprovados}<br>`);
-  document.write(`Média da Nota na Turma: ${mediaTurma.toFixed(2)}`);
+    document.write(<h3>Estatísticas:</h3>);
+    document.write(Quantidade de Alunos Aprovados: ${alunosAprovados}<br>);
+    document.write(Média da Nota na Turma: ${mediaTurma.toFixed(2)});
   </script>
-  </body>
+</body>
+
 </html>
