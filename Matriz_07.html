@@ -1,14 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Exercício Matriz 07</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>População das Cidades</title>
 </head>
 
 <body>
+  <h1>Informações sobre as populações de cada estado</h1>
+  <div id="cidades"></div>
 
+  <script>
+    function obterPopulacaoEstado() {
+    
+      for (let estado = 1; estado <= 20; estado++) {
+       
+        let somaPopulacao = 0;
+        let cidades = [];
+        for (let cidade = 1; cidade <= 5; cidade++) {
+         
+        let populacao = Number(prompt(`Digite a população da ${cidade}ª cidade do ${estado}º estado:`));
+         
+
+          cidades.push(populacao);
+          somaPopulacao += populacao;
+        }
+
+        let maiorPopulacao = Math.max(...cidades);
+        let menorPopulacao = Math.min(...cidades);
+        let mediaPopulacao = somaPopulacao / cidades.length;
+
+        document.getElementById('cidades').innerHTML += `
+          <p><strong>Estado ${estado}:</strong></p>
+          <p>Maior População: ${maiorPopulacao}</p>
+          <p>Menor População: ${menorPopulacao}</p>
+          <p>Média de População: ${mediaPopulacao.toFixed(2)}</p>
+          <hr>`;
+      }
+    }
+
+    obterPopulacaoEstado();
+  </script>
 </body>
 
 </html>
